@@ -78,7 +78,7 @@ public class VESPAP {
                 // Vérifiez si l'employé existe et que sa fonction est de type 2
                 if (employe != null && employe.getTypeEmploye().getType() == 2) {
                     // L'employé existe et a une fonction de type 2
-                    employe.toStringLigne();
+                   // employe.toStringLigne();
                     System.out.println("------------------");
                     return employe;
                 } else {
@@ -187,7 +187,7 @@ public class VESPAP {
             } catch (NumberFormatException e)
             {
                 System.out.println("Erreur de parcing");
-                return "REPPAIEMENT#KO";
+                    return "REPPAIEMENT#KO";
             }
         }
         else

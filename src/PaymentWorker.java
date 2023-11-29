@@ -41,7 +41,7 @@ public class PaymentWorker implements Runnable {
                 }
 
                 String clientMessage = new String(clientMessageData, 0, bytesRead);
-                messageCount++;
+
                 System.out.println("Message du client : " + clientMessage);
                 VESPAP vespap = new VESPAP();
                 int codeRetour = vespap.VESPAP(clientMessage);
@@ -62,12 +62,20 @@ public class PaymentWorker implements Runnable {
                         break;
                     case 2:
                         System.out.println("Je suis serveur cas 2 : ");
-                        if (estLoge == 1) {
+                        if (estLoge == 1)
+                        {
                             reponse = vespap.facturesClient(clientMessage);
                             ClientBean client = vespap.clientSelectionne(clientMessage);
+                            if (client != null){
                             String nomClient = client.getNom();
                             reponse += "#" + nomClient;
-                        } else {
+                            }
+                            else
+                            {
+                                reponse="ERROR";
+                            }
+                        }
+                        else {
                             reponse = "ERROR"; // Pour la sécurité
                         }
                         break;
